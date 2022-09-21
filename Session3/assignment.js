@@ -21,10 +21,10 @@ printEvens(10);
 
 // Q3
 const checkLetter = (string,letter) => 
-    (string.includes(letter)) ? console.log("Yes") : console.log("No");
+    (string.toLowerCase().includes(letter)) ? console.log("Yes") : console.log("No");
 
 console.log("\nQ3.");
-checkLetter("efyjiy","y");
+checkLetter("efYji","y");
 
 // Q4
 const factorial = (num) => (num) ? num*factorial(num-1) : 1;
