@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="">
+        <label for="studentName">Student Name: </label>
+        <input type="text" name="studentName" id="studentName" required>
+        <label for="studentEmail">Student Email: </label>
+        <input type="email" name="studentEmail" id="studentEmail" required>
+        <label for="studentId">Student ID:</label>
+        <input type="text" name="studentId" id="studentId" required minlength="9" maxlength="9">
+        <button type="button" id="submit">Submit</button>
+    </form>
+        <table id="studentTable">
+            <tr>
+                <th>
+                    Student Name
+                </th>
+                <th>
+                    Student Email
+                </th>
+                <th>
+                    Student ID
+                </th>
+            </tr>
+        </table>
+</body>
+</html>
