@@ -20,22 +20,6 @@ let employeeList = [
     department: 'HR',
     Salary: 50000,
   },
-  {
-    id: 3,
-    name: 'Daniel',
-    email: 'daniel@company.ca',
-    employeeID: 101,
-    department: 'HR',
-    Salary: 5000,
-  },
-  {
-    id: 4,
-    name: 'Daniel',
-    email: 'daniel@company.ca',
-    employeeID: 101,
-    department: 'HR',
-    Salary: 50000000,
-  },
 ];
 
 app.get('/employees', (req, res) => {
@@ -121,8 +105,7 @@ app.get('/employees/salaries/higest', (req, res) => {
       employeeList.find((employee) => employee.Salary === salary)
     );
   });
-  employeeList = sortedEmployeeList;
-  res.status(200).send(JSON.stringify(employeeList));
+  res.status(200).send(JSON.stringify(sortedEmployeeList));
 });
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)
