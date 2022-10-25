@@ -29,15 +29,21 @@ function studentWithHighestMarks(arr) {
 }
 console.log(studentWithHighestMarks(student));
 
-let array1 = [4, 5, 2, 1, 0];
-let array2 = [2, 1, 0, 3, 7, 6, 4, 5, 10, 9];
+let array1 = [4, 5, 1, 0];
+let array2 = [2, 1, 7, 6, 4, 5, 10, 9];
 function missingNumber(array, n) {
-  for (let i = 0; i <= n; i++) {
-    if (!array.includes(i)) {
-      return i;
+  let missingNumArr = [];
+  if (n === 0) {
+    if (!array.includes(n)) {
+      missingNumArr.push(n);
     }
+    return missingNumArr;
   }
+  missingNumArr = missingNumber(array, n - 1);
+  if (!array.includes(n)) {
+    missingNumArr.push(n);
+  }
+  return missingNumArr;
 }
-
-console.log(missingNumber(array1, array1.length));
-console.log(missingNumber(array2, array2.length));
+console.log(missingNumber(array1, Math.max(...array1))); // 2,3
+console.log(missingNumber(array2, Math.max(...array2))); // 0,3,8
