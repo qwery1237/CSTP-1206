@@ -44,8 +44,8 @@ app.post('/', (req, res) => {
   res.status(201).redirect('/confirm');
 });
 app.get('/confirm', (req, res) => {
-  const { username, email, contact } = curruntUser;
-  res.render('user_confirm', { username, email, contact });
+  const { username, email, contact,createdAt } = curruntUser;
+  res.render('user_confirm', { username, email, contact,createdAt });
 });
 
 app.listen(PORT, () => {
