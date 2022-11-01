@@ -8,3 +8,12 @@ function random() {
     }
 }
 random();
+function minElement(array){
+    return array.reduce((crr,acc) => {
+        if(crr > acc){
+            return acc
+        }else {
+            return crr
+        }
+    })
+}
