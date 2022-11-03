@@ -14,7 +14,7 @@ const PathUserInfo = path.join(
 );
 let userInfo = fs.readFileSync(PathUserInfo, 'utf-8');
 userInfo ? (userInfo = JSON.parse(userInfo)) : (userInfo = {});
-let curruntUser;
+let currentUser;
 
 app.set('view engine', 'ejs');
 app.use(
@@ -37,15 +37,32 @@ app.post('/', (req, res) => {
     email,
     contact,
     createdAt: new Date().toString(),
+    links: [
+      {
+        name: 'facebook',
+        url: 'https://facebook.com',
+        img: '../img/facebook.png',
+      },
+      {
+        name: 'instagram',
+        url: 'https://instagram.com',
+        img: '../img/insta.jpeg',
+      },
+      {
+        name: 'youtube',
+        url: 'https://youtube.com',
+        img: '../img/youtube.png',
+      },
+    ],
   };
   userInfo[newUser.id] = newUser;
   fs.writeFileSync(PathUserInfo, JSON.stringify(userInfo));
-  curruntUser = newUser;
+  currentUser = newUser;
   res.status(201).redirect('/confirm');
 });
 app.get('/confirm', (req, res) => {
-  const { username, email, contact,createdAt } = curruntUser;
-  res.render('user_confirm', { username, email, contact,createdAt });
+  const { username, email, contact, createdAt, links } = currentUser;
+  res.render('user_confirm', { username, email, contact, createdAt, links });
 });
 
 app.listen(PORT, () => {
